@@ -1,6 +1,8 @@
-title: Wenzhuo Zhao
+title: Wenzhuo Zhao's blog
 author: Sylvain Zhao
 email: zslyvain@gmail.com
+baseurl: ""
+url: "https://valeeraz.github.io/"
 description: > # this means to ignore newlines until "show_exerpts:"
   A student of computer science. Sorbonnes Univeristé, Paris.
 show_excerpts: true # set to true to show excerpts on the homepage
