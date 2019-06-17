@@ -51,3 +51,5 @@ remote_theme: thelehhman/plainwhite-jekyll
 plugins:
   - jekyll-seo-tag
 #  - jekyll-feed
+
+theme: jekyll-theme-slate
