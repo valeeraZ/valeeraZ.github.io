@@ -6,6 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
+remote_theme: thelehhman/plainwhite-jekyll
 title: Sylvain Zhao's Blog
 author: Sylvain Zhao
 description: > # this means to ignore newlines until "baseurl:"
