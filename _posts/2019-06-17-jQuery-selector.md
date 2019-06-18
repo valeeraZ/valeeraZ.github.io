@@ -1,9 +1,16 @@
 ---
 title: jQuery样式
 layout: post
-categories: Front End
-tags: jQuery
+subtitle: "jQuery选择器"
+date:       2019-06-17
+author:     "Zhao"
+header-img: "img/jQuery.jpg"
+tags: 
+    - jQuery
 ---
+
+> “Debut of Front End”
+
 ## jQuery对象转化成DOM对象
 jQuery库本质上还是JavaScript代码，它只是对JavaScript语言进行包装处理，为的是提供更好更方便快捷的DOM处理与开发中经常使用的功能。我们使用jQuery的同时也能混合JavaScript原生代码一起使用。在很多场景中，我们需要jQuery与DOM能够相互的转换，它们都是可以操作的DOM元素，jQuery是一个类数组对象，而DOM对象就是一个单独的DOM元素。
 如何把jQuery对象转成DOM对象？jQuery对象自身提供一个.get() 方法允许我们直接访问jQuery对象中相关的DOM节点，get方法中提供一个元素的索引：
