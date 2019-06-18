@@ -83,6 +83,6 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 friends: [
     {
         title: "Lu Yan's Blog",
-        href: "https://softcorns.cnblog.com"
+        href: "https://softcorns.cnblogs.com"
     }
 ]
