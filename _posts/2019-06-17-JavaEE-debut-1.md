@@ -34,7 +34,7 @@ For more information, please read [HTTP Protocol](https://developer.mozilla.org/
 
 **GET**
 
-```Java
+```java
 protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 ```
 
@@ -42,7 +42,7 @@ Usually, HTTP GET requests are idempotent. I.e. you get exactly the same result 
 
 **POST**
 
-```Java
+```java
 protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 ```
 
@@ -50,7 +50,7 @@ HTTP POST requests are not idempotent. If the enduser has submitted a POST form 
 
 ### service
 
-```Java
+```java
 protected void service(HttpServletRequest req, HttpServletResponse resp)
 ```
 If you override the service function in your servlet, the servlet will handle all the request methods 
@@ -66,7 +66,7 @@ getEmail | GET | verify that an address email is duplicated or not
 
 Here the code of service in `public class userServlet extends HttpServlet`
 
-```Java
+```java
 protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
