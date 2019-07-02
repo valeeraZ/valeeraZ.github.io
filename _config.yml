@@ -5,7 +5,7 @@ header-img: img/home-bg.jpg
 email: zslyvain@gmail.com
 description: Wenzhuo Zhao
 keyword: "Wenzhuo Zhao"
-url: "http://valeeraz.github.io"              # your host, for absolute URL
+url: "https://valeeraz.github.io"              # your host, for absolute URL
 baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
 
 
@@ -16,7 +16,8 @@ RSS: true
 #zhihu_username:     huxpro
 github_username:    valeeraZ
 twitter_username:  SylvainZhao
-facebook_username:  Sylvain Zhao
+wechat_username: PorFavor
+#facebook_username: zhao sylvain
 
 
 
