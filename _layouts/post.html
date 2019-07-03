@@ -90,6 +90,27 @@ layout: default
                     {% endif %}
                 </ul>
 
+                <!-- Gitalk 评论 start  -->
+
+                <!-- Link Gitalk 的支持文件  -->
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script> 
+                <div id="gitalk-container"></div>     
+                <script type="text/javascript">
+                    var gitalk = new Gitalk({
+
+                    // gitalk的主要参数
+                        clientID: `1a5bf31398facb414cce`,
+                        clientSecret: `0b50f6cb2741de309b04d8244e13477f76a6a147`,
+                        repo: `valeeraZ.github.io`,
+                        owner: 'valeeraZ',
+                        admin: ['valeeraZ'],
+                        id: 'location.pathname', 
+
+                    });
+                    gitalk.render('gitalk-container');
+                </script> 
+                <!-- Gitalk end -->
 
                 {% if site.duoshuo_username %}
                 <!-- 多说评论框 start -->
