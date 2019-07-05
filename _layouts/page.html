@@ -172,12 +172,22 @@ layout: default
                             {% endif %}
                             {% if site.wechat_username %}
                             <li>
-                                <a target="_blank" href="/about/">
+                                <a target="_blank" href="/img/wechat.jpg">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
+                            </li>
+                            {% endif %}
+                            {% if site.linkedin %}
+                            <li>
+                            <a target="_blank" href="www.linkedin.com/in/{{ site.linkedin }}">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
                             </li>
                             {% endif %}
                         </ul>

@@ -22,7 +22,7 @@ Servelt is the base of JavaEE but I didn't learn that in school until my second 
 - Some basic knowledge about AJAX and Java
 
 # Let's go: user systeme
-## simple structure
+
 ![structure.jpg](https://i.loli.net/2019/07/01/5d198c4fc1bf290242.jpg)
 
 ## Part 1 : servlet
@@ -86,6 +86,114 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
         }
     }
 ```
+### Methods
+So now we have `service` to redirect the request to the methods which we will define below.
+
+**Connection to data base**
+
+Of course all the operation concerned with data will have to establish a connection with data base to get or alter data. 
+
+A user might have serveral functions: he can register, login and modify his profile. To ease the pressure of server, we use a global data base connection. Once a servlet is created, a connection to data base will be established automatically in `context listener`  and all the CRUD operations will use this connection. 
+
+Here the code of connection to db.
+```java
+@WebListener //important for his role as a listener
+public class DatabaseContextListener implements ServletContextListener {
+    private ServletContext context = null;
+    private Connection conn = null;
+
+    public DatabaseContextListener() {
+
+    }
+    public static Connection getConnection(){
+        try {
+            //com.mysql.jdbc.Driver
+            Class.forName("com.mysql.jdbc.Driver");
+            System.out.println("Ready for the driver JDBC.");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        Connection c = null;
+        try {
+            c = DriverManager.getConnection(
+                    "jdbc:mysql://127.0.0.1:3306/paris2024",
+                    "root", "");//config of db
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Connected to data base.");
+        return c;
+    }
+
+    //will be called when the servlet is created
+    public void contextInitialized(ServletContextEvent event)  {
+        this.context = event.getServletContext();
+        conn = getConnection();
+        // a db connection in context
+        context.setAttribute("dbConn",conn);
+        System.out.println("Connection initialized in Context.");
+    }
+
+    //will be called when the servlet is closed
+    public void contextDestroyed(ServletContextEvent event){
+        this.context = null;
+        try {
+            this.conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        this.conn = null;
+        System.out.println("Connection closed in Context.");
+    }
+}
+
+```
+
+Now we have the connection that's to say we can do the CRUD. I will pass the connection by invoking the functions in service(will be mentioned in the next article, **not** the service in this article) to DAO.
+
+Here the code of a complete servlet.
+
+```java
+@WebServlet(name = "userServlet")
+public class userServlet extends HttpServlet {
+    static Connection conn ;
+    private user user = new user();
+
+    public void init(){
+        conn = (Connection) getServletContext().getAttribute("dbConn");
+        System.out.println("userServlet initialized.实例化.");
+    }
+    protected void service(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException{
+        //see the last bloc
+    }
+
+    protected void doRegister(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException{
+        response.setContentType("charset=utf-8");
+        PrintWriter out = response.getWriter();    //获取writer方法，用于将数据返回给ajax
+        userService us = new userServiceImplement(conn);//调用service
+        String email = request.getParameter("email");//获取输入的用户名
+        String password = request.getParameter("password");//获取输入的密码
+        String name = request.getParameter("name");//获取输入的密码
+
+        user.setUser_email(email);
+        user.setUser_password(password);
+        user.setUser_name(name);
+        if(us.register(user)) { //成功注册
+            out.print("true");//返回true，表示注册成功
+            System.out.println("New user registered:"+user.getUser_name());
+        }else{
+            out.print("false");//返回true，表示注册成功
+            System.out.println("Fail to register user");
+        }
+    }
+}
+```
+
+
+
+
 
 
 

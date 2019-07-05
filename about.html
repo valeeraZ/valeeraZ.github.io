@@ -10,32 +10,124 @@ header-img: "img/about-bg.jpg"
     <option value="0" selected> English </option>
     <option value="1"> Français </option>
 </select>
+<br><br>
 
-<!-- English Version -->
-<div class="en post-container">
-    <blockquote>
-        A chinese student in France. Sorbonne University. Licence 3.
-    </blockquote>
-    <br>
-    An independant developper working in Front End (Vue.js) and Back End (Spring Boot).
-    <br><br>
-    My WeChat subscription account:
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="/css/CV.css">
 
+<!--English CV-->
+<div class="en post-container row">
+    <div class="left col-md-5 col-xs-12">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" alt="Wenzhuo Zhao">
+        </div>
+        <div class="profile">
+            <h2>Wenzhuo ZHAO</h2>
+            <p>A student of computer science.<br> Web developer.</p>
+            <h3>Profile</h3>
+            <p>21 years old<br>Chinese<br>Study in France</p>
+        </div>
+        <div class="competence">
+            <h3>Competences</h3>
+            <img src="/img/logo/jQuery.png">  jQuery  <span class="jQuery"></span><br>
+            <img src="/img/logo/JavaScript.png">  JavaScript  <span class="JS"></span><br>
+            <img src="/img/logo/wordpress.png">  WordPress <span class="wp"></span><br>
+            <img src="/img/logo/java.png">  JavaEE <span class="java"></span><br>
+            <img src="/img/logo/php.png">  php <span class="php"></span><br>
+        </div>
+    </div>
+    <div class="right col-md-7 col-xs-12">
+        <h3>Studies</h3>
+        <ul>
+            <li>2017 - 2019 : IUT d'Orsay | Computer Science</li>
+            <li>2019 -      : Sorbonne University | Computer Science</li>
+        </ul>
+        <h3>Professional experience</h3>
+        <ul>
+            <li>2019.3 - 2019.4 : Working for Qingdao Guode Decoration Enterprise to make a web site</li>
+            <li>2019.4 - 2019.7 : Assitant in Sichuan Normal University to make a web application</li>
+        </ul>
+        <h3>Hobbies</h3>
+        <ul>
+            <li>Film</li>
+            <li>Gym: Work out</li>
+            <li>Football</li>
+        </ul>
+        <h3>Languages</h3>
+        <ul>
+            <li>French: B2</li>
+            <li>English: school course level</li>
+            <li>Chinois: mother tongue</li>
+        </ul>
+    </div>
 </div>
-
-<!-- English Version -->
+<!--french CV-->
 <div class="fr post-container">
-    <blockquote>
-        Un étudiant chinois en France à la Sorbonne Université en Licence 3.
-    </blockquote>
-    <br>
-    Un indépendant développeur qui travaille dans Front End (Vue.js) et Back End (Spring Boot).
-    <br><br>
-    Mon compte d'abonnement de WeChat:
-
+    <div class="left col-md-5 col-xs-12">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" alt="Wenzhuo Zhao">
+        </div>
+        <div class="profile">
+            <h2>Wenzhuo ZHAO</h2>
+            <p>Un étudiant en informatique.<br>Développeur de web</p>
+            <h3>Profil</h3>
+            <p>21 ans<br>Chinois<br>Etudes en France</p>
+        </div>
+        <div class="competence">
+            <h3>Competences</h3>
+            <img src="/img/logo/jQuery.png">  jQuery  <span class="jQuery"></span><br>
+            <img src="/img/logo/JavaScript.png">  JavaScript  <span class="JS"></span><br>
+            <img src="/img/logo/wordpress.png">  WordPress <span class="wp"></span><br>
+            <img src="/img/logo/java.png">  JavaEE <span class="java"></span><br>
+            <img src="/img/logo/php.png">  php <span class="php"></span><br>
+        </div>
+    </div>
+    <div class="right col-md-7 col-xs-12">
+        <h3>Formation</h3>
+        <ul>
+            <li>2017 - 2019 : IUT d'Orsay | Informatique</li>
+            <li>2019 -      : Sorbonne Université | Informatique</li>
+        </ul>
+        <h3>Expériences professionnelles</h3>
+        <ul>
+            <li>2019.3 - 2019.4 : Télétravail pour Qingdao Guode Décoration de Masion Entreprise: réaliser un site web</li>
+            <li>2019.4 - 2019.7 : Assistant d'un laboratoire de l'Université Normale du Sichuan: réaliser une web application</li>
+        </ul>
+        <h3>Centre d'intérêts</h3>
+        <ul>
+            <li>Film</li>
+            <li>Gym</li>
+            <li>Football</li>
+        </ul>
+        <h3>Langues</h3>
+        <ul>
+            <li>Français: B2</li>
+            <li>Anglais: niveau scolaire</li>
+            <li>Chinois: langue natale</li>
+        </ul>
+    </div>
 </div>
-<img src="/img/wechat.jpg" width="200" height="200" />
 
+<!--stars of competence-->
+<script type="text/javascript">
+    var star = "<span class='glyphicon glyphicon-star'></span>";
+    var empty = "<span class='glyphicon glyphicon-star-empty'></span>";
+    //how many stars can you get from 5 ; for example jQuery for 4 stars
+    function getStars(classname,number){
+        var place = document.getElementsByClassName(classname);
+        place[0].innerHTML= star.repeat(number) + empty.repeat(5-number);
+        place[1].innerHTML= star.repeat(number) + empty.repeat(5-number);
+    }
+    function doGetStars(){
+        getStars("jQuery",3);
+        getStars("JS", 2);
+        getStars("wp",3);
+        getStars("java",4);
+        getStars("php",5);
+    }
+    doGetStars();
+    
+</script>
 <!-- Handle Language Change -->
 <script type="text/javascript">
     var $en = document.querySelector(".en");
@@ -44,9 +136,11 @@ header-img: "img/about-bg.jpg"
         if(index == 0){
             $en.style.display = "block";
             $fr.style.display = "none";
+            doGetStars();
         }else{
             $fr.style.display = "block";
             $en.style.display = "none";
+            doGetStars();
         }
     }
     onLanChange(0);
@@ -54,64 +148,5 @@ header-img: "img/about-bg.jpg"
 
 
 
-{% if site.duoshuo_username %}
-<!-- 多说评论框 start -->
-<div class="comment">
-    <div class="ds-thread"
-    {% if site.duoshuo_username == "huxblog" %}
-        data-thread-id="1187623191091085319"
-    {% else %}
-        data-thread-key="{{site.duoshuo_username}}/about"
-    {% endif %}
-
-    data-title="{{page.title}}"
-    data-url="{{site.url}}/about/"></div>
-</div>
-<!-- 多说评论框 end -->
-
-<!-- Duoshuo hacking -->
-<input id="dsUser" type="hidden" value="{{site.duoshuo_username}}"  />
-
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-    // dynamic User hacking by Hux
-    var _user = document.getElementById('dsUser').value;
-    // duoshuo comment query.
-    var duoshuoQuery = {short_name: _user };
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-</script>
-<!-- 多说公共JS代码 end -->
-{% endif %}
 
 
-{% if site.disqus_username %}
-<!-- disqus 评论框 start -->
-<div class="comment">
-    <div id="disqus_thread" class="disqus-thread">
-
-    </div>
-</div>
-<!-- disqus 评论框 end -->
-
-<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "{{site.disqus_username}}";
-    var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
-    var disqus_url = "{{site.url}}{{page.url}}";
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus 公共JS代码 end -->
-{% endif %}
