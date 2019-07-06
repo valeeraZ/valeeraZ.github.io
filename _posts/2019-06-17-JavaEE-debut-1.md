@@ -58,11 +58,11 @@ Use it when you know what you're doing, the default implementation calls doGet()
 
 To override the service, I prefer using reflex to call the methods below which I will define.
 
-Name | Type | Function
-:-: | :-: | :-: 
-doLogin | POST | get information(email and password) of login 
-doRegister | POST | create an account
-getEmail | GET | verify that an address email is duplicated or not
+Name | Type | Function | Parameter
+:-: | :-: | :-: | :-:
+doLogin | POST | get information of login | email, password 
+doRegister | POST | create an account | email, password, name
+getEmail | GET | verify that an address email is duplicated or not | email
 
 Here the code of service in `public class userServlet extends HttpServlet`
 
@@ -161,7 +161,7 @@ public class userServlet extends HttpServlet {
 
     public void init(){
         conn = (Connection) getServletContext().getAttribute("dbConn");
-        System.out.println("userServlet initialized.实例化.");
+        System.out.println("userServlet initialized.");
     }
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
@@ -171,20 +171,20 @@ public class userServlet extends HttpServlet {
     protected void doRegister(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
         response.setContentType("charset=utf-8");
-        PrintWriter out = response.getWriter();    //获取writer方法，用于将数据返回给ajax
-        userService us = new userServiceImplement(conn);//调用service
-        String email = request.getParameter("email");//获取输入的用户名
-        String password = request.getParameter("password");//获取输入的密码
-        String name = request.getParameter("name");//获取输入的密码
+        PrintWriter out = response.getWriter();    //write response back to Ajax
+        userService us = new userServiceImplement(conn);//using function in class service
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        String name = request.getParameter("name");
 
         user.setUser_email(email);
         user.setUser_password(password);
         user.setUser_name(name);
-        if(us.register(user)) { //成功注册
-            out.print("true");//返回true，表示注册成功
+        if(us.register(user)) { //register successfully
+            out.print("true");
             System.out.println("New user registered:"+user.getUser_name());
         }else{
-            out.print("false");//返回true，表示注册成功
+            out.print("false");//fail
             System.out.println("Fail to register user");
         }
     }
