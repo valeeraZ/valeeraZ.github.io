@@ -3,11 +3,13 @@ title: Asymptotic Notations
 layout: post
 subtitle: Big Theta (Θ),Big O(O) and Big Omega (Ω)
 date:       2019-09-17
-author:     "https://www.studytonight.com"
+author:     "Zhao"
 header-img: "img/algo.jpg"
 tags: 
     - Algorithme
 ---
+**Original post at** <https://www.studytonight.com/data-structures/aysmptotic-notations>. All rights reserved of © 2019 Studytonight. [DMCA Protected](https://www.dmca.com/Protection/Status.aspx?ID=3075061c-0e86-4754-964b-d319a50d06af&refurl=https://www.studytonight.com/data-structures/aysmptotic-notations).
+
 When it comes to analysing the complexity of any algorithm in terms of time and space, we can never provide an exact number to define the time required and the space required by the algorithm, instead we express it using some standard notations, also known as **Asymptotic Notations**. 
 
 When we analyse any algorithm, we generally get a formula to represent the amount of time required for execution or the time required by the computer to run the lines of code of the algorithm, number of memory accesses, number of comparisons, temporary variables occupying memory space etc. This formula often contains unimportant details that don't really tell us anything about the running time.
