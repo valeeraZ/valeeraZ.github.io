@@ -2,7 +2,7 @@
 title: SQL与关系代数
 layout: post
 subtitle: SQL语句的执行一般是先翻译为关系代数再被执行的（能有效提高执行速度），所以我们有必要了解关系代数与SQL语句间的对应关系。
-date:       2019-09-17
+date:       2019-09-19
 author:     "Zhao"
 header-img: "img/database.jpeg"
 tags: 
