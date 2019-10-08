@@ -1,6 +1,6 @@
 @media(min-width: 992px){
-    .left{
-        border-right: 1px solid black;
+    .right{
+        border-left: 1px solid black;
     }
 }
 
