@@ -327,6 +327,7 @@ li  $2, 1           #对$2赋值1
 syscall             #将值打印在终端
 ```
 对于不同的数据类型，赋给$2的值也不同
+
 Value for $2 to print|type of data
 :-:|:-:
 1|integer
@@ -341,6 +342,7 @@ li  $2, 5           #对$2赋值5
 syscall             #读取终端的值，并放入$2中
 ```
 对于不同的数据类型，赋给$2的值也不同
+
 Value for $2 to read|type of data
 :-:|:-:
 5|integer
