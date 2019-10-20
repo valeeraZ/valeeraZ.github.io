@@ -1,7 +1,7 @@
 ---
 title: makefile简述
 layout: post
-subtitle: 数据库系统索引
+subtitle: 使用makefile编译程序
 date:       2019-10-20
 author:     "Zhao"
 header-img: "img/system.png"
