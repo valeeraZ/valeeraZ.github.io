@@ -147,9 +147,9 @@ jax: "1"
 
 # 传递闭包
 
-函数依赖的闭包定义：$F^{+} = \{ X \to Y  | F\models X \to Y \}$  
+函数依赖的闭包定义：$F^+ = \lbrace X \to Y  \vert F \models X \to Y \rbrace$  
 
-**属性值的闭包定义**: $[X]^{+}_{F} = \{ A | F\models X \to A \}$  
+**属性值的闭包定义**: $[X]^{+}_{F} = \lbrace A \vert F\models X \to A \rbrace$  
 
 给定属性值集合X，函数依赖F，计算X的闭包：
 
