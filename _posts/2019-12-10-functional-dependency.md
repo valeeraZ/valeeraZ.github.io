@@ -1,7 +1,7 @@
 ---
-title: 关系数据库设计
+title: 关系数据库设计(1)
 layout: post
-subtitle: 函数依赖和分解算法
+subtitle: 函数依赖
 date:       2019-12-10
 author:     "Zhao"
 header-img: "img/database.jpeg"
