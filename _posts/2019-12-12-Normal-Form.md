@@ -84,6 +84,7 @@ R1(NameS, Adr, NameP)和R2(NameS, Price)
 | t2   | name  | b22  | b32     | price |
 
 经过变换之后得到：(将b22变换为adr)
+
 |      | NameS | Adr  | NameP | Price |
 | ---- | ----- | ---- | ----- | ----- |
 | t1   | name  | adr  | prod  | b41   |
