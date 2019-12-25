@@ -53,6 +53,8 @@ public class Query {
 
 # 客户端
 
+服务器默认在`while(true)`一个死循环中运行，当所有的客户端均完成消息发送-得到回执后，最后一个客户端将服务器进程`interrupt`结束掉。
+
 ```java
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -121,6 +123,8 @@ public class Client implements Runnable {
 ```
 
 # 服务器端
+
+当从`ArrayBlockingQueue`中取到消息时，构造一个新的线程servant用他来处理消息。
 
 ```java
 import java.util.concurrent.ArrayBlockingQueue;
@@ -210,33 +214,33 @@ public class test {
 ```
 # 测试结果
 
-sizequeue = 2, nbClient=3
-Client 1: initialize
-Client 2: initialize
-Server: initialize.
-Client 1: I send the query.
-Client 2: I send the query.
-Client 1: I wait for the response of server
-Client 2: I wait for the response of server
-Server: I resolve a query.
-Client 3: initialize
-Client 3: I send the query.
-Client 3: I wait for the response of server
-Server: I resolve a query.
-Server: I resolve a query.
-Servant (Client 1, 60) : initialize.
-Servant (Client 2, 335) : initialize.
-Servant (Client 3, 720) : initialize.
-Servant (Client 1, 60) : I inform the server
-Client 1: The query is resolved
-Servant (Client 2, 335) : I inform the server
-Client 2: The query is resolved
-Servant (Client 3, 720) : I inform the server
-Client 3: The query is resolved
-Client 3: Last client has been terminated, I kill the thread of Server.
-Server: The last client terminates the server.
+sizequeue = 2, nbClient=3  
+Client 1: initialize  
+Client 2: initialize  
+Server: initialize.  
+Client 1: I send the query.  
+Client 2: I send the query.  
+Client 1: I wait for the response of server  
+Client 2: I wait for the response of server  
+Server: I resolve a query.  
+Client 3: initialize  
+Client 3: I send the query.  
+Client 3: I wait for the response of server  
+Server: I resolve a query.  
+Server: I resolve a query.  
+Servant (Client 1, 60) : initialize.  
+Servant (Client 2, 335) : initialize.  
+Servant (Client 3, 720) : initialize.  
+Servant (Client 1, 60) : I inform the server  
+Client 1: The query is resolved  
+Servant (Client 2, 335) : I inform the server  
+Client 2: The query is resolved  
+Servant (Client 3, 720) : I inform the server  
+Client 3: The query is resolved  
+Client 3: Last client has been terminated, I kill the thread of Server.  
+Server: The last client terminates the server.  
 
-Process finished with exit code 0
+Process finished with exit code 0  
 
 ---
 
