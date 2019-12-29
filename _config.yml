@@ -17,7 +17,7 @@ RSS: true
 github_username:    valeeraZ
 #twitter_username:  
 wechat_username: PorFavor
-linkedin: wenzhuo-zhao-informatique-dev
+linkedin_username: wenzhuo-zhao-informatique-dev
 #facebook_username: 
 
 
@@ -45,6 +45,12 @@ gems: [jekyll-paginate]
 markdown: kramdown
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
 
 
 

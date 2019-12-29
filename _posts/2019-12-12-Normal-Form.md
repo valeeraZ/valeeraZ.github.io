@@ -7,7 +7,7 @@ author:     "Zhao"
 header-img: "img/database.jpeg"
 tags: 
     - Data Base
-jax: "1"
+mathjax: true
 ---
 
 # 关系模式的分解

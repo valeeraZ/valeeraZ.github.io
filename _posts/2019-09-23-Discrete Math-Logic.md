@@ -7,7 +7,7 @@ author:     "Zhao"
 header-img: "img/algo.jpg"
 tags: 
     - Math
-jax:    "1"
+mathjax: true
 ---
 # 命题逻辑
 
