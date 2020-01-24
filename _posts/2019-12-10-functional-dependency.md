@@ -12,7 +12,7 @@ mathjax: true
 
 # 前言
 
-一般而言，关系数据库设计的目标是生成一组关系模式，是我们存储信息时避免不必要的冗余，并方便地获取信息。这是通过设计满足**适当范式(Normal Forme or in French "Forme Normale")**来实现的。本文简短地通过**函数依赖**介绍设计方法。
+一般而言，关系数据库设计的目标是生成一组关系模式，是我们存储信息时避免不必要的冗余，并方便地获取信息。这是通过设计满足**适当范式(Normal Form or in French "Forme Normale")**来实现的。本文简短地通过**函数依赖**介绍设计方法。
 
 # 概念
 
@@ -132,6 +132,11 @@ mathjax: true
 > une surclé X est appelé une clé de R, s'il n’existe pas de sous-ensemble stricte Y⊂ X de X qui est aussi une surclé.
 >
 > Une clé de R est un ensemble minimal (-au sens de l’inclusion) qui détermine tous les autres
+>
+> Surclé d’une relation : ensemble d’attributs dont la connaissance des valeurs permet d’identifier un n-upplet unique de la relation considérée. Il peut exister plusieurs surclé. Une relation étant un ensemble : l’ensemble des attributs de la relation forme toujours une surclé.
+>
+> Clé d’une relation : est une surclé minimale. Par conséquent si on retire un attribut de la clé alors le reste des attributs ne forme plus une surclé.
+> Lorsqu’il existe plusieurs clés, on en choisit une que l’on nomme clé primaire, elle est représentée dans le schéma de relation en soulignant le nom des attributs concernés par la clé.
 
 1. 问题：若F = {A → B, B → C}, 那么A是R(ABC)的码吗？  
 
