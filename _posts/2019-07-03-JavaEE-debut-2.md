@@ -7,6 +7,7 @@ author:     "Zhao"
 header-img: "img/javaee.png"
 tags: 
     - Java
+    - Web
 ---
 ## Part2 : Service
 In fact, we can use DAO directly after getting called from servlet. But I personnally like adding a service layer between DAO and servlet. On the one hand, using a service can make the code and logic easier to understand; on the other hand, a same method DAO can be used in different services.

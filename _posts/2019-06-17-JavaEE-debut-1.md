@@ -7,6 +7,7 @@ author:     "Zhao"
 header-img: "img/javaee.png"
 tags: 
     - Java
+    - Web
 ---
 # Introduction
 Servelt is the base of JavaEE but I didn't learn that in school until my second year. In this article, I will talk about the basic technics about JavaEE. However, my way is different with other tutorial: I don't use JSP to load a page instead I use AJAX.
