@@ -48,6 +48,11 @@ System.out.println("学生1:" + stu1.getNumber());
 System.out.println("学生2:" + stu2.getNumber());  
 ```
 
+```
+学生1:12345  
+学生2:12345  
+```
+
 为什么我改变了stu2的值，stu1也跟着改变了呢？
 原因出在(stu2 = stu1) 这一句。该语句的作用是将stu1的**引用**赋值给stu2。其实，stu1和stu2在堆内存中指向的是同一个对象。
 
