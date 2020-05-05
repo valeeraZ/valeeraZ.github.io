@@ -1,5 +1,5 @@
 ---
-title: ：MIPS算数与逻辑指令
+title: MIPS算数与逻辑指令
 layout: post
 subtitle: Mips Arithmetic and logic instructions
 date:       2020-05-05
