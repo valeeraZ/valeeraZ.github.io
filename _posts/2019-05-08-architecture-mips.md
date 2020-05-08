@@ -2,7 +2,7 @@
 title: MIPS汇编语言入门
 layout: post
 subtitle: MIPS：无互锁流水级的微处理器(Microprocessor without Interlocked Piped Stages) 
-date:       2019-09-28
+date:       2020-05-08
 author:     "Zhao"
 header-img: "img/system.png"
 tags: 
@@ -594,7 +594,7 @@ syscall
 
 ----
 **参考资料:**  
-[中康涅狄格州州立大学课程](https://chortle.ccsu.edu/AssemblyTutorial/index.html)    
+[Central Connecticut State University QtSpim Edition, August 2015](https://chortle.ccsu.edu/AssemblyTutorial/index.html)    
 [巴黎六大-索邦大学计算机软件及硬件组成原理](https://www-soc.lip6.fr/trac/sesi-almo/)  
 [MIPS编程入门](https://www.cnblogs.com/thoupin/p/4018455.html)  
 其他指令详询[常用mips指令](https://e-mailky.github.io/2017-09-07-mips_instruction)
