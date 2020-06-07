@@ -57,7 +57,7 @@ public class ClassA {
 
 我们根据预先在配置文件中设定的实现类的类名(Config.BImplementation),动态加载实现类,并通过InterfaceB强制转型后为ClassA所用,这就是接口注入的一个最原始的雏形。
 
-```Java
+```java
 public class ClassA {
     private InterfaceB clzB;
     public Object doSomething(InterfaceB b) {
@@ -72,7 +72,7 @@ public class ClassA {
 
 在运行期,InterfaceB实例将由容器提供。即使在IOC的概念尚未确立时,这样的方法也已经频繁出现在我们的代码中。
 
-```Java
+```java
 public class MyServlet extends HttpServlet {
     public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException {
         ……
@@ -86,7 +86,7 @@ HttpServletRequest和HttpServletResponse实例由Servlet Container在运行期�
 
 基于设置模式的依赖注入机制更加直观,也更加自然.
 
-```Java
+```java
 public class ClassA {
     private InterfaceB clzB;
     public void setClzB(InterfaceB clzB) {
@@ -100,7 +100,7 @@ public class ClassA {
 
 #### 构造器注入
 
-```Java
+```java
 public class DIByConstructor {
     private final DataSource dataSource;
     public DIByConstructor(DataSource ds) {
@@ -153,7 +153,7 @@ Spring使用注入方式，为什么使用注入方式，这系列问题实际�
 
 对于Car接口，定义四个方法：
 
-```Java
+```java
 package Car;
 
 public interface Car {
@@ -166,7 +166,7 @@ public interface Car {
 
 定义两种车，实现Car接口：
 
-```Java
+```java
 package Car;
 
 public class Renault implements Car {
@@ -188,7 +188,7 @@ public class Renault implements Car {
 }
 ```
 
-```Java
+```java
 package Car;
 
 public class Toyota implements Car {
@@ -212,7 +212,7 @@ public class Toyota implements Car {
 
 定义User接口，对于一个User，他的唯一功能就是`goHome()`
 
-```Java
+```java
 package User;
 
 public interface User {
@@ -222,7 +222,7 @@ public interface User {
 
 在这个例子中，User使用Car回家，那么定义一个抽象类Driver，实现User接口。Driver是抽象类的原因是：对于不同的Driver，所要回的家不一样，也就是用户的行为不同，因而需要在下面UserA和UserB中再定义。
 
-```Java
+```java
 package User;
 
 import Car.Car;
@@ -241,7 +241,7 @@ public abstract class Driver implements User {
 
 定义UserA和UserB，继承Driver。
 
-```Java
+```java
 package User;
 
 import Car.Car;
@@ -259,7 +259,7 @@ public class UserA extends Driver{
 }
 ```
 
-```Java
+```java
 package User;
 
 import Car.Car;
@@ -280,7 +280,7 @@ public class UserB extends Driver{
 
 ### 实现IocContainer
 
-```Java
+```java
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
@@ -342,7 +342,7 @@ public class IoCContainer {
 
 ### 测试
 
-```Java
+```java
 import Car.Renault;
 import Car.Toyota;
 import User.User;
