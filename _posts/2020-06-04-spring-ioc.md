@@ -41,7 +41,7 @@ IOC和DI描述的是一件事情，只是从不同的角度来描述：
 
 #### 接口注入
 
-```Java
+```java
 public class ClassA {
     private InterfaceB clzB;
     public void doSomething() {
@@ -75,7 +75,7 @@ public class ClassA {
 ```java
 public class MyServlet extends HttpServlet {
     public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException {
-        ……
+        //do something
     }
 }
 ```
@@ -92,7 +92,7 @@ public class ClassA {
     public void setClzB(InterfaceB clzB) {
         this.clzB = clzB;
     }
-    ……
+    //do something
 }
 ```
 
@@ -106,7 +106,7 @@ public class DIByConstructor {
     public DIByConstructor(DataSource ds) {
         this.dataSource = ds;
     }
-    ……
+    //do something
 }
 ```
 
