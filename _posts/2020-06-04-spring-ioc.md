@@ -4,7 +4,7 @@ layout: post
 subtitle: Spring IoC container
 date:       2020-06-04
 author:     "Zhao"
-header-img: "img/Spring.png"
+header-img: "img/Spring.jpg"
 tags: 
    - Java
    - Design Pattern
@@ -49,7 +49,7 @@ public class ClassA {
         clzB = (InterfaceB)obj;
         clzB.doIt();
     }
-    ……
+    
 }
 ```
 
@@ -64,7 +64,7 @@ public class ClassA {
         clzB = b;
         return clzB.doIt();
     }
-    ……
+    
 }
 ```
 
