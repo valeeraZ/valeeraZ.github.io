@@ -1,4 +1,4 @@
-# Wenzhuo Zhao's blog : student of computer science in france
+# Wenzhuo Zhao's blog : student of computer science
 
 ##### This blog using the boilerplate of [Hux Blog](https://github.com/Huxpro/huxpro.github.io).
 

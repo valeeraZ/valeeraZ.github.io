@@ -1,125 +1,111 @@
 ---
-layout: page
+layout: default
 title: "About"
 description: "Hi, this is me."
 header-img: "img/about-bg.jpg"
 ---
 
-<!-- Language Selector -->
-<select onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
-    <option value="0" selected> English </option>
-    <option value="1"> Français </option>
-</select>
-<br><br>
+{% include intro-header.html type='page' short=true %}
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="/css/CV.css">
+<div class="container">
+    <!-- Language Selector -->
+    <select onchange="onLanChange(this.options[this.options.selectedIndex].value)">
+        <option value="0" selected> English </option>
+        <option value="1"> Français </option>
+    </select>
+    <br><br>
 
-<!--English CV-->
-<div class="en post-container row">
-    <div class="left col-md-5 col-xs-12">
-        <div class="avatar">
-            <img src="/img/avatar.jpg" alt="Wenzhuo Zhao">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/css/CV.css">
+
+    <!--English CV-->
+    <div class="en post-container row">
+        <div class="left col-md-4 col-xs-12">
+            <div class="avatar">
+                <img src="/img/avatar.jpg" alt="Wenzhuo Zhao">
+            </div>
+            <div class="profile">
+                <p>A student of computer science.<br> Web developer.</p>
+            </div>
+            <div class="competence">
+                <h3>Competences</h3>
+                <img src="/img/logo/JavaScript.png"> JavaScript <span class="JS"></span><br>
+                <img src="/img/logo/java.png"> Java <span class="java"></span><br>
+                <img src="/img/logo/php.png"> PHP <span class="php"></span><br>
+            </div>
+            <h3>Languages</h3>
+            <ul>
+                <li>French: C1</li>
+                <li>English: TOEIC B2</li>
+                <li>Chinese: mother tongue</li>
+            </ul>
         </div>
-        <div class="profile">
-            <h2>Wenzhuo ZHAO</h2>
-            <p>A student of computer science.<br> Web developer.</p>
-            <h3>Profile</h3>
-            21 years old<br>Chinese<br>Study in France
-        </div>
-        <div class="competence">
+        <div class="right col-md-8 col-xs-12">
+            <h3>Studies</h3>
+            <ul>
+                <li>2017 - 2019 : IUT d'Orsay | Computer Science | DUT </li>
+                <li>2019 - 2020 : Sorbonne University | Computer Science | Bachelor</li>
+                <li>2020 - : Sorbonne University | Computer Science | Master</li>
+            </ul>
             <h3>Competences</h3>
-            <img src="/img/logo/jquery.png">  jQuery  <span class="jQuery"></span><br>
-            <img src="/img/logo/JavaScript.png">  JavaScript  <span class="JS"></span><br>
-            <img src="/img/logo/wordpress.png">  WordPress <span class="wp"></span><br>
-            <img src="/img/logo/java.png">  JavaEE <span class="java"></span><br>
-            <img src="/img/logo/php.png">  php <span class="php"></span><br>
+            <ul>
+                <li>Java: Spring</li>
+                <li>PHP: REST API with Slim4 framework</li>
+                <li>Front End: React.js & Bootstrap</li>
+            </ul>
+
+            <h3>Hobbies</h3>
+            <ul>
+                <li>Film</li>
+                <li>Hike</li>
+                <li>Football</li>
+            </ul>
+
         </div>
-        <h3>Languages</h3>
-        <ul>
-            <li>French: B2</li>
-            <li>English: TOEIC B2</li>
-            <li>Chinese: mother tongue</li>
-        </ul>
     </div>
-    <div class="right col-md-7 col-xs-12">
-        <h3>Studies</h3>
-        <ul>
-            <li>2017 - 2019 : IUT d'Orsay | Computer Science | DUT </li>
-            <li>2019 -      : Sorbonne University | Computer Science | Undergraduate</li>
-        </ul>
-        <h3>Competences</h3>
-        <ul>
-            <li>Java: JavaServlet, SpringBoot</li>
-            <li>php: REST API</li>
-            <li>Front End: H5, CSS3, JS, Vue.js</li>
-        </ul>
-        <h3>Professional experience</h3>
-        <ul>
-            <li>2019.3 - 2019.4 : Working for Qingdao Guode Decoration Enterprise to make a web site</li>
-            <li>2019.4 - 2019.7 : Assitant in Sichuan Normal University to make a web application</li>
-        </ul>
-        
-        <h3>Hobbies</h3>
-        <ul>
-            <li>Film</li>
-            <li>Gym: Work out</li>
-            <li>Football</li>
-        </ul>
-        
-    </div>
-</div>
-<!--french CV-->
-<div class="fr post-container">
-    <div class="left col-md-5 col-xs-12">
-        <div class="avatar">
-            <img src="/img/avatar.jpg" alt="Wenzhuo Zhao">
+    <!--french CV-->
+    <div class="fr post-container row">
+        <div class="left col-md-4 col-xs-12">
+            <div class="avatar">
+                <img src="/img/avatar.jpg" alt="Wenzhuo Zhao">
+            </div>
+            <div class="profile">
+                <p>Un étudiant en informatique.<br>Développeur de web</p>
+            </div>
+            <div class="competence">
+                <h3>Compétences</h3>
+                <img src="/img/logo/JavaScript.png"> JavaScript <span class="JS"></span><br>
+                <img src="/img/logo/java.png"> Java <span class="java"></span><br>
+                <img src="/img/logo/php.png"> PHP <span class="php"></span><br>
+            </div>
+            <h3>Langues</h3>
+            <ul>
+                <li>Français: C1</li>
+                <li>Anglais: TOEIC B2</li>
+                <li>Chinois: langue natale</li>
+            </ul>
         </div>
-        <div class="profile">
-            <h2>Wenzhuo ZHAO</h2>
-            <p>Un étudiant en informatique.<br>Développeur de web</p>
-            <h3>Profil</h3>
-            21 ans<br>Chinois<br>Etudes en France
-        </div>
-        <div class="competence">
+        <div class="right col-md-8 col-xs-12">
+            <h3>Formation</h3>
+            <ul>
+                <li>2017 - 2019 : IUT d'Orsay | Informatique | DUT</li>
+                <li>2019 - 2020 : Sorbonne Université | Informatique | Licence</li>
+                <li>2019 - : Sorbonne Université | Informatique | Master</li>
+            </ul>
             <h3>Compétences</h3>
-            <img src="/img/logo/jquery.png">  jQuery  <span class="jQuery"></span><br>
-            <img src="/img/logo/JavaScript.png">  JavaScript  <span class="JS"></span><br>
-            <img src="/img/logo/wordpress.png">  WordPress <span class="wp"></span><br>
-            <img src="/img/logo/java.png">  JavaEE <span class="java"></span><br>
-            <img src="/img/logo/php.png">  php <span class="php"></span><br>
+            <ul>
+                <li>Java: Spring</li>
+                <li>php: REST API avec Slim4 Framework</li>
+                <li>Front End: React.js & Bootstrap</li>
+            </ul>
+            <h3>Centre d'intérêts</h3>
+            <ul>
+                <li>Film</li>
+                <li>Randonnée</li>
+                <li>Football</li>
+            </ul>
+
         </div>
-        <h3>Langues</h3>
-        <ul>
-            <li>Français: B2</li>
-            <li>Anglais: TOEIC B2</li>
-            <li>Chinois: langue natale</li>
-        </ul>
-    </div>
-    <div class="right col-md-7 col-xs-12">
-        <h3>Formation</h3>
-        <ul>
-            <li>2017 - 2019 : IUT d'Orsay | Informatique | DUT</li>
-            <li>2019 -      : Sorbonne Université | Informatique | Licence</li>
-        </ul>
-        <h3>Compétences</h3>
-        <ul>
-            <li>Java: JavaServlet, SpringBoot</li>
-            <li>php: REST API</li>
-            <li>Front End: H5, CSS3, JS, Vue.js</li>
-        </ul>
-        <h3>Expériences professionnelles</h3>
-        <ul>
-            <li>2019.3 - 2019.4 : Télétravail pour Qingdao Guode Décoration de Masion Entreprise: réaliser un site web</li>
-            <li>2019.4 - 2019.7 : Assistant d'un laboratoire de l'Université Normale du Sichuan: réaliser une web application</li>
-        </ul>
-        <h3>Centre d'intérêts</h3>
-        <ul>
-            <li>Film</li>
-            <li>Gym</li>
-            <li>Football</li>
-        </ul>
-        
     </div>
 </div>
 
@@ -128,31 +114,29 @@ header-img: "img/about-bg.jpg"
     var star = "<span class='glyphicon glyphicon-star'></span>";
     var empty = "<span class='glyphicon glyphicon-star-empty'></span>";
     //how many stars can you get from 5 ; for example jQuery for 4 stars
-    function getStars(classname,number){
+    function getStars(classname, number) {
         var place = document.getElementsByClassName(classname);
-        place[0].innerHTML= star.repeat(number) + empty.repeat(5-number);
-        place[1].innerHTML= star.repeat(number) + empty.repeat(5-number);
+        place[0].innerHTML = star.repeat(number) + empty.repeat(5 - number);
+        place[1].innerHTML = star.repeat(number) + empty.repeat(5 - number);
     }
-    function doGetStars(){
-        getStars("jQuery",3);
-        getStars("JS", 2);
-        getStars("wp",3);
-        getStars("java",4);
-        getStars("php",5);
+    function doGetStars() {
+        getStars("JS", 3);
+        getStars("java", 5);
+        getStars("php", 3);
     }
     doGetStars();
-    
+
 </script>
 <!-- Handle Language Change -->
 <script type="text/javascript">
     var $en = document.querySelector(".en");
     var $fr = document.querySelector(".fr");
-    function onLanChange(index){
-        if(index == 0){
+    function onLanChange(index) {
+        if (index == 0) {
             $en.style.display = "block";
             $fr.style.display = "none";
             doGetStars();
-        }else{
+        } else {
             $fr.style.display = "block";
             $en.style.display = "none";
             doGetStars();
@@ -160,8 +144,3 @@ header-img: "img/about-bg.jpg"
     }
     onLanChange(0);
 </script>
-
-
-
-
-

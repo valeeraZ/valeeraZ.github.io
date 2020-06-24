@@ -1,10 +1,10 @@
 # Site settings
-title: Wenzhuo Zhao's Blog
-SEOTitle: Wenzhuo Zhao's Blog | Blog de Wenzhuo Zhao | 赵文卓的博客
+title: Sylvain's Blog
+SEOTitle: Sylvain's Blog
 header-img: img/home-bg.jpg
 email: zslyvain@gmail.com
-description: Wenzhuo Zhao
-keyword: "Wenzhuo Zhao"
+description: "Sylvain"
+keyword: "Sylvain"
 url: "https://valeeraz.github.io"              # your host, for absolute URL
 baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -17,7 +17,7 @@ RSS: true
 github_username:    valeeraZ
 #twitter_username:  
 wechat_username: PorFavor
-linkedin_username: wenzhuo-zhao-informatique-dev
+#linkedin_username: wenzhuo-zhao-informatique-dev
 #facebook_username: 
 
 
