@@ -8,8 +8,7 @@ header-img: "img/system.png"
 tags: 
     - System
 ---
-摘自维基百科：  
-MIPS架构（英语：MIPS architecture，为Microprocessor without Interlocked Pipeline Stages的缩写，亦为Millions of Instructions Per Second的头字语），是一种采取精简指令集（RISC）的处理器架构，1981年出现，由MIPS科技公司开发并授权，广泛被使用在许多电子产品、网络设备、个人娱乐设备与商业设备上。最早的MIPS架构是32位，最新的版本已经变成64位。  
+ MIPS架构（英语：MIPS architecture，为Microprocessor without Interlocked Pipeline Stages的缩写，亦为Millions of Instructions Per Second的头字语），是一种采取精简指令集（RISC）的处理器架构，1981年出现，由MIPS科技公司开发并授权，广泛被使用在许多电子产品、网络设备、个人娱乐设备与商业设备上。最早的MIPS架构是32位，最新的版本已经变成64位。  
 在1981年，斯坦福大学教授约翰·轩尼诗领导他的团队，实现出第一个MIPS架构的处理器。他们原始的概令是透过指令管线化来增加CPU运算的速度。
 1984年，约翰·轩尼诗教授离开斯坦福大学，创立MIPS科技公司。于1985年，设计出R2000芯片，1988年，将其改进为R3000芯片。
 

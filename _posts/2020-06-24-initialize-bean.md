@@ -1,5 +1,5 @@
 ---
-title: Spring Initialize bean
+title: Spring-Initialize bean
 layout: post
 subtitle: 3 ways to initialize a bean in Spring
 date:       2020-06-24
@@ -11,7 +11,15 @@ tags:
    - Spring
 ---
 
-# 三种方式实例化Bean
+A bean definition is essentially a recipe for creating one or more objects. The container looks at the recipe for a named bean when asked and uses the configuration metadata encapsulated by that bean definition to create (or acquire) an actual object.
+
+本文章介绍三种实例化Bean的方式
+
+- 构造函数方式
+- 静态工厂方式
+- 实例方法方式
+
+以及对于Bean的别名的介绍
 
 首先新建maven项目，引入依赖
 
@@ -40,7 +48,7 @@ tags:
 
 ## 通过构造函数方式实例化
 
-这也是最常用的一种，在上一篇文章中已经提到过。  
+这也是最常用的一种。  
 
 新建`Bean1.java`，在`spring.xml`中加入这个Bean，并测试
 
@@ -52,6 +60,8 @@ public class Bean1 {
     }
 }
 ```
+
+将我们的bean交由Spring管理：在ressources文件夹下，新建配置文件spring.xml（这一步可以在Intellij IDEA中右键新建XML Configuration file - Spring config）并加入我们的bean
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>

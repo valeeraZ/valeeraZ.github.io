@@ -9,32 +9,8 @@ tags:
     - System
 ---
 
-**版权声明**  
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 未本地化版本许可协议</a>进行许可。
-
-![almo.jpg](https://i.loli.net/2019/11/17/uMTHljYrGtcd5L8.jpg)
-
-<!-- TOC -->
-
-- [前言](#前言)
-- [TTY](#2.tty)
-- [MIPS虚拟地址内存映射](#mips虚拟地址内存映射)
-- [操作系统](#操作系统)
-    - [软件架构](#软件架构)
-    - [具体应用](#具体应用)
-    - [实例](#实例)
-- [SR (Status Register $12)](#sr-status-register-12)
-- [CR (Cause Register $13)](#cr-cause-register-13)
-- [进入内核的步骤](#进入内核的步骤)
-    - [syscall](#syscall)
-    - [Exception异常](#exception异常)
-- [从内核返回用户应用](#从内核返回用户应用)
-
-<!-- /TOC -->
-
-# 1. 前言
-
 本篇文章我们将学习计算机物理，寻址空间及软件组成原理，探究处理器，内存以及外围设备间的信息沟通。如下图所示，我们所研究的内容包含：
+
 - 一枚MIPS32架构的处理器，包含一级缓存L1用来缓存数据和指令
 - 二级缓存L2，用来与外部内存RAM链接
 - 只读存储器ROM，用来存放机器启动时的代码
@@ -43,11 +19,11 @@ tags:
 
 ![archi.jpg](https://i.loli.net/2019/11/17/nBisbQpDJI3xCaV.jpg)
 
-
+![almo.jpg](https://i.loli.net/2019/11/17/uMTHljYrGtcd5L8.jpg)
 
 系统在处理指令时，使用小型的开发系统GIET来处理异常（法语：Gestionnaire d’Interruptions, Exceptions et Trappes）（翻译：GIET : Interruption / Exception / Trap Handler for MIPS32 processor）。
 
-# 2. TTY
+# TTY
 
 从历史上看，终端刚开始就是终端机，配有打印机，键盘，带有一个串口，通过串口传送数据到主机端，然后主机处理完交给终端打印出来。电传打字机(teletype)可以被看作是这类设备的统称，因此终端也被简称为 TTY(teletype 的缩写)。  
 后来的终端慢慢演变成了键盘 + 显示器。如果我们要把内容输出到显示器，只要把这些内容写入到显示器对应的 TTY 设备就可以了，然后由 TTY 层负责匹配合适的驱动完成输出。  
@@ -73,7 +49,7 @@ TTY控制器能够作用于多个终端，而每个终端都具有4种TTY的控�
 
 当MIPS做出load或store指令时，所有的组件都会受到目标地址。每个组件在虚拟地址映射所属的地址段（segment de l'espace d'adressage）：若映射到的地址属于此组件管理，则此组件处理此请求；否则则不做任何事。
 
-# 3. MIPS虚拟地址内存映射
+# MIPS虚拟地址内存映射
 
 ![espace adressage.jpg](https://i.loli.net/2019/11/17/ef6XTA12j3vurBg.jpg)
 
@@ -96,7 +72,7 @@ GIET系统地址起始点为`0x80000000`，其中进入点为`0x80000180`。多�
 
 GIET代码启动时存储在RAM中因为其代码属于操作系统一部分，在boot阶段运行。GIET数据存储在`seg_kdata`和`seg_kunc`中。
 
-# 4. 操作系统
+# 操作系统
 
 1. 管理硬件及应用资源
     - 对硬件的调用：终端，硬盘，网络等
@@ -115,7 +91,7 @@ GIET代码启动时存储在RAM中因为其代码属于操作系统一部分，�
 - 应用安全：机密性，整体性
 - 硬件使用可靠性
 
-## 4.1. 软件架构
+## 软件架构
 
 ![archi logicielle.jpg](https://i.loli.net/2019/11/18/TQCNeZqjrMEHgBi.jpg)
 
@@ -124,7 +100,7 @@ GIET代码启动时存储在RAM中因为其代码属于操作系统一部分，�
 - 中部：系统内核，他接收来自应用层的服务请求（`syscall`）
 - 下部：硬件，通过各种load/store指令写入数据
 
-## 4.2. 具体应用
+## 具体应用
 
 一个程序应该至少有一个`main()`函数用来启动，他的代码，数据以及堆栈都存储在内存中只要这个程序是可以在用户模式下运行的（也就是地址小于`0x80000000`）。  
 当应用需要访问外围设备时，他需要向系统内核通过`syscall`发出请求，通过系统代码库中的某个API来实现。  
@@ -135,7 +111,7 @@ syscall ≃ jal kernel
 $2 ⇒ 返回错误代码，或0表示成功
 ```
 
-## 4.3. 实例
+## 实例
 ```c
 #include <stdio.h>
 __attribute__((constructor)) void main(void)
@@ -163,7 +139,7 @@ __attribute__((constructor)) void main(void)
 5. **GIET**开始处理第一次跳转，调用他本身的系统函数`__tty_write()`，以在屏幕上输出一行长度已知的字符串。这个函数从`seg_data`中依次读取字符，并将其写入`seg_tty`中。（即在寄存器`TTY_WRITE`中）
 6. `__tty_write()`函数返回至`tty_puts()`再返回至`main()`
 
-# 5. SR (Status Register $12)
+# SR (Status Register $12)
 
 ![SR.jpg](https://i.loli.net/2019/11/18/uLmz7HZJxNXYTEW.jpg)
 
@@ -181,34 +157,157 @@ __attribute__((constructor)) void main(void)
 - 0xFF01：syscall
 - 0xFF00：临界区段
 
-# 6. CR (Cause Register $13)
+# CR (Cause Register $13)
 
 ![CR.jpg](https://i.loli.net/2019/11/18/bF5KVMIgOokisft.jpg)
 
 仅需要注意XCODE数段，4位16个可能至代表系统进入内核模式的原因
 
-# 7. 进入内核的步骤
+# 进入内核的步骤
 
-## 7.1. syscall
+## syscall
 
 1. EPC <-PC : 保存syscall的地址
 2. SR[EXL] = 1
 3. CR[XCODE] = 8 即1000 SYS，为进入的原因
 4. PC = 0x80000180
 
-## 7.2. Exception异常
+## Exception异常
 
 1. EPC <-PC : 保存syscall的地址
 2. SR[EXL] = 1
 3. CR[XCODE] = 异常原因
 4. PC = 0x80000180
 
-# 8. 从内核返回用户应用
+# 从内核返回用户应用
 
 1. SR[EXL] = 0
 2. PC = EPC
 
+# GIET构成
 
+> GIET = "Gestionnaire d'Interruptions, Exceptions et Trappes" or Exception Handling
+
+## E - Exception异常：
+
+由于程序出错而导致的系统异常，例如除数为0，地址未对齐。异常通常导致程序错误地终止。异常管理器应当诊断出异常的类型，并显示异常信息以帮助程序员修改程序。异常管理器在文件`exc_handler.c`中
+
+## I - Interruption中断：
+
+来自于硬件，在软件层面上，中断是不可预知的，并随时有可能发生。
+
+   > Les interruptions provenant de périphériques sont imprévisibles du point de vue du logiciel en cours d'exécution sur le processeur, et peuvent donc survenir à tout instant.
+
+   若一个中断没有被隐藏，则会触发中断处理程序(ISR : [Interrupt Service Routine](https://en.wikipedia.org/wiki/Interrupt_handler) )用于处理中断，硬件可从处理器“偷窃”数个时钟周期(cycle)以做处理。在处理中断结束后，被中断的应用则会恢复运行。终端管理器会通过访问中断集中器(ICU : Interrupt Concentrator Unity)应诊断中断的来源，以便调用对应的ISR。`MIPS32`处理器拥有6个中断接口，但仅有处理器接口 0° 被使用，因此应当系统性地访问ICU。中断处理程序在文件`irq_handler.c`中。
+
+   > L'ICU est un multi concentrateur de signaux d'IRQ. Chaque IRQ peut être masquée. Dans le cas d'une architecture multi cores, il permet de router l'IRQ vers n'importe quel core. C'est un périphérique cible contrôlé par des accès en lecture/écriture en registres.
+
+## T - Trappe风道(系统调用)：
+
+由用户模式的应用软件向系统内核发送的服务调用请求，以`syscall`的方式发出，例如在TTY终端读写或是读写硬盘。通过`syscall`处理的方式为
+
+- 从`$2`读取服务号
+
+- 从`$4,$5,$6或$7`读取服务参数
+
+- 调用系统服务
+
+GIET可在需要时，使用栈来存储不同应用程序的所需调用的系统服务。这一程序在文件`sys_handler.c`中
+
+# 硬件构成
+
+## TTY
+
+## TIMER
+
+![TIMER.jpg](https://i.loli.net/2019/12/07/euR7JaCEdjkNYVM.jpg)
+
+TIMER包含了一个计时器，可定时触发一个中断，通过读写寄存器的方式设置。
+
+- TIMER_VALUE : 读/写，每个cycle值+1
+
+- TIMER_PERIOD : 只写。两次IRQ之间的周期
+
+- TIMER_MODE : 运行模式，两位二进制数
+
+  - 第0位：若为1则TIMER正在运行，为0则TIMER已停止
+  - 第1位：若为1，则当TIMER计时器自减至0时，无IRQ中断
+
+- TIMER_RESTIRQ：只写，在此地址写入以处理IRQ
+
+  在`stido.c`中有TIMER源代码，其中部分函数用法如下
+
+  - `timer_set_period()`: 
+
+  This function defines the period value of a timer to enable a periodic interrupt.         
+
+  Returns 0 if success , > 0 if error .
+
+  - `timer_set_mode (int mode)`: 
+
+    This function defines the operation mode of a timer . The possible values forthis mode are:
+
+    - 0x0 : Timer not activated
+
+    * 0x1 : Timer activated , but no interrupt is generated
+
+  * 0x3 : Timer activarted and periodic interrupts generated.
+
+  Returns 0 if success , > 0 if error.
+
+  ```c
+  timer_set_period(5000000);
+  timer_set_mode(3);
+  ```
+
+  若将这两个函数放入代码中，则每隔5,000,000cycles，屏幕会输出TIMER中断信息" Interrupt timer received at cycle : "+当前处理器经过的cycles数
+
+  ## ICU
+
+ICU : Interrupt Concentrator Unity中断集中器。每个IRQ都可能会被隐藏，在多核心架构中，它将不同的IRQ导向不同的核心。
+
+[![QUUueU.md.jpg](https://s2.ax1x.com/2019/12/08/QUUueU.md.jpg)](https://imgse.com/i/QUUueU)
+
+ICU_INT: IRQ的连接
+
+![QUak7D.jpg](https://s2.ax1x.com/2019/12/08/QUak7D.jpg)
+
+可以看到，ICU可管理32个不同来源的IRQ
+
+在`seg_id`中：
+
+```
+seg_icu_base = 0x9F000000; /* ICU device */
+```
+
+在`reset.s`中，初始化`_interrupt_vector`，并将TIMER和TTY连接到ICU上
+
+(已知TIMER连接至`IN_IRQ[1]`, TTY连接至`IN_IRQ[3]`)
+
+```asm
+/* initializes interrupt vector */
+la $26, _interrupt_vector
+/* $26 <= interrupt_vector address */
+la $27, _isr_timer
+/* $27 <= isr_timer address */
+sw $27, 4($26)
+/* interrupt_vector[1] <= _isr_timer */
+la $27, _isr_tty_get_task0
+/* $27 <= isr_tty_get_task0 address */
+sw $27, 3*4($26)
+/* interrupt_vector[3] <= _isr_tty_get_task0 */
+```
+
+初始化ICU
+
+```asm
+la $26, seg_icu_base
+/* initializes ICU */
+li $27, 0xA
+/* IRQ_IN[1] & IRQ_IN[3] enabled */
+sw $27, 2*4($26)
+/* ICU_MASK_SET = 0xA */
+```
 
 
 

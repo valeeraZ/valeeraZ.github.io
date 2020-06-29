@@ -8,18 +8,7 @@ header-img: "img/java.png"
 tags: 
     - Java
 ---
-<!-- TOC -->
-
-- [并行与并发](#并行与并发)
-- [线程与进程](#线程与进程)
-- [线程安全](#线程安全)
-- [synchronized关键字](#synchronized关键字)
-    - [对象锁](#对象锁)
-    - [对方法synchronized](#对方法synchronized)
-    - [对代码块synchonized](#对代码块synchonized)
-    - [对静态方法](#对静态方法)
-
-<!-- /TOC -->
+本文介绍并行与并发的区别，线程与进程的区别，以及使用`synchronized`关键字来保证线程安全。
 
 # 并行与并发
 并行性（parallel）：指在同一时刻，有多条指令在多个处理器上同时执行；  
@@ -153,7 +142,7 @@ class InsertData {
         }
     }
 }
-``` 
+```
 从上面可以看出，synchronized代码块使用起来比synchronized方法要灵活得多。因为也许一个方法中只有一部分代码只需要同步，如果此时对整个方法用synchronized进行同步，会影响程序执行效率。而使用synchronized代码块就可以避免这个问题，synchronized代码块可以实现只对需要同步的地方进行同步。
 
 ## 对静态方法

@@ -9,9 +9,7 @@ tags:
     - Java
 ---
 
-# 前言
-
-经典的消费者-生产者模型，但这次用`ReentrantReadWriteLock`来实现并发时的线程安全。
+本文介绍经典的消费者-生产者模型，但这次用`ReentrantReadWriteLock`来实现并发时的线程安全。
 
 三个主要的class
 

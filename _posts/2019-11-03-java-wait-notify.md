@@ -8,13 +8,8 @@ header-img: "img/java.png"
 tags: 
     - Java
 ---
-<!-- TOC -->
+本文介绍线程状态，以及如何使用`wait`和`notify`来实现生产者消费者模型。
 
-- [关于线程的状态](#关于线程的状态)
-- [关于wait()和notify()](#关于wait和notify)
-- [生产者消费者模型](#生产者消费者模型)
-
-<!-- /TOC -->
 # 关于线程的状态
 java thread有五种状态类型
 

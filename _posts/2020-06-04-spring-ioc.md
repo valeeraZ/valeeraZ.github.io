@@ -1,5 +1,5 @@
 ---
-title: Spring IoC
+title: Spring-IoC
 layout: post
 subtitle: Spring IoC container
 date:       2020-06-04

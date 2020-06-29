@@ -10,23 +10,14 @@ tags:
 mathjax: true
 ---
 
-<!-- TOC -->
+本文介绍B+树索引的特点及遍历，插入，删除等基本操作
 
-- [B+树索引](#b树索引)
-    - [B+树的特点](#b树的特点)
-    - [B树的阶及高度](#b树的阶及高度)
-    - [B+树遍历](#b树遍历)
-    - [B+树插入](#b树插入)
-    - [B+树删除](#b树删除)
-
-<!-- /TOC -->
-
-# 1. B+树索引
+# B+树索引
 
 B+树索引结构是在数据插入和删除情况下仍能保持其执行效率的最广泛的索引结构之一。B+树采用平衡树结构，其中树根到树叶的每条路径长度相同。  
 B+树结构会增加文件插入及删除的性能开销，同时会增加空间开销。考虑到对更新频率较高的文件来说，这种开销也是可以接受的，因为这样会减少文件重组的代价。  
 
-## 1.1. B+树的特点
+## B+树的特点
 
 B+树是一种多级索引，但是其结构不同于多级索引结构文件，它最多包含$n-1$ 个搜索码值$K_1，K_2，...，K_{n-1}$，以及$n$个指针$P_1，P_2，...，P_n$
 
@@ -60,7 +51,7 @@ B+ 树的三个优点：
 2. 每次都需要查询到叶子节点，查询性能稳定
 3. 叶子节点形成有序链表，范围查询方便
 
-## 1.2. B树的阶及高度
+## B树的阶及高度
 
 (英语对应order)定义是不统一的：
 > Unfortunately, the literature on B-trees is not uniform in its terminology (Folk & Zoellick 1992, p. 362).  
@@ -76,7 +67,7 @@ B+ 树的三个优点：
 >Un arbre-B+ est d’ordre d si  一棵d阶B+树为:  
 >- Pour un nœud intermédiaire et une feuille : d ≤ n ≤ 2d   每个内部节点/叶子节点含d ~ 2d个指针 
 >- Pour la racine: 1 ≤ n ≤ 2d  对于根节点，含1 ~ 2d 个指针   
-     
+
 > Hauteur minimum quand l’arbre est plein : 当树满时的最大高度  
 >h = $\log_{2d+1}(N) +1 $
 >- 2d clés par nœud  每个节点2d个指针
@@ -92,7 +83,7 @@ possible : 当树为最不满时的最大高度
 
 ![arbre ordre 2.jpg](https://i.loli.net/2019/10/15/IznhSfvwireOgRs.jpg)
 
-## 1.3. B+树遍历
+## B+树遍历
 
 ![parcours-arbre-b.png](https://i.loli.net/2019/10/20/faEMY1PFrDRmspi.png)
 
@@ -101,7 +92,7 @@ possible : 当树为最不满时的最大高度
 2. 40<43<45,指针来到Bloc1
 3. 43∈Bloc1
 
-## 1.4. B+树插入
+## B+树插入
 
 1. 若为空树，创建一个叶子结点，然后将记录插入其中，此时这个叶子结点也是根结点，插入操作结束。
 
@@ -167,7 +158,7 @@ possible : 当树为最不满时的最大高度
 
 ![insertion10.png](https://i.loli.net/2019/10/20/dGJlgVcwkHS3QXL.png)
 
-## 1.5. B+树删除
+## B+树删除
 
 如果叶子结点中没有相应的key，则删除失败。否则执行下面的步骤
 
@@ -191,7 +182,7 @@ possible : 当树为最不满时的最大高度
 
 ![suppression1.png](https://i.loli.net/2019/10/20/ANrg38oBSj9Ekhy.png)
 
---- 
+---
 
 删除22,删除后结果如下图  
 
@@ -209,7 +200,7 @@ possible : 当树为最不满时的最大高度
 
 ![suppression4.png](https://i.loli.net/2019/10/20/3AwFXTzRueq7n6K.png)
 
---- 
+---
 
 删除7，删除后的结果如下图所示  
 

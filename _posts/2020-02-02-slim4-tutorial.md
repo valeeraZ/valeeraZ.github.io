@@ -10,26 +10,9 @@ tags:
     - REST API
 ---
 
-**版权所有**
-
-本文作者为[Daniel Opitz](https://twitter.com/dopitz)，摘自https://odan.github.io/2019/11/05/slim4-tutorial.html，本文章仅为翻译。
-
-Note: the content is the network collection written by [Daniel Opitz](https://twitter.com/dopitz) from https://odan.github.io/2019/11/05/slim4-tutorial.html and translated by me, if any infringement please contact me to delete!
-
 This tutorial shows you how to work with the powerful and lightweight Slim 4 framework.
 
 这篇教程将向你展示如何使用轻量级且功能强大的Slim4框架。
-
-
-
-## Requirements 准备
-
-* PHP 7.1+
-* MySQL 5.7+
-* Apache webserver
-* Composer
-
-## Introduction 简介
 
 Slim Framework is a great microframework for web applications, RESTful API's and websites.
 
@@ -38,6 +21,13 @@ Our aim is to create a RESTful API with routing, business logic and database ope
 Standards like [PSR](https://www.php-fig.org/psr/) and best practices are very important and integrated part of this tutorial.
 
 Slim框架是一款面向web app，REST API以及网站的轻量级框架。我们的目标是编写一个具备路由，业务逻辑以及数据库操作的RESTful API。在这篇教程中，一些标准（例如PSR）将非常重要。
+
+## Requirements 准备
+
+* PHP 7.1+
+* MySQL 5.7+
+* Apache webserver
+* Composer
 
 ## Installation 安装
 
@@ -1270,3 +1260,11 @@ You can add a query builder as described here:
 ## Read more
 
 * [Slim 4 - Cheatsheet and FAQ](https://odan.github.io/2019/09/09/slim-4-cheatsheet-and-faq.html)
+
+---
+
+**版权所有**
+
+本文作者为[Daniel Opitz](https://twitter.com/dopitz)，摘自https://odan.github.io/2019/11/05/slim4-tutorial.html，本文章仅为翻译。
+
+Note: the content is the network collection written by [Daniel Opitz](https://twitter.com/dopitz) from https://odan.github.io/2019/11/05/slim4-tutorial.html and translated by me, if any infringement please contact me to delete!

@@ -1,7 +1,7 @@
 ---
-title: 关系数据库设计(1)
+title: 关系数据库设计-函数依赖
 layout: post
-subtitle: 函数依赖
+subtitle: 函数依赖设计方法
 date:       2019-12-10
 author:     "Zhao"
 header-img: "img/database.jpeg"
@@ -9,8 +9,6 @@ tags:
     - Data Base
 mathjax: true
 ---
-
-# 前言
 
 一般而言，关系数据库设计的目标是生成一组关系模式，是我们存储信息时避免不必要的冗余，并方便地获取信息。这是通过设计满足**适当范式(Normal Form or in French "Forme Normale")**来实现的。本文简短地通过**函数依赖**介绍设计方法。
 

@@ -8,12 +8,6 @@ header-img: "img/system.png"
 tags:
 - System
 ---
-**版权声明**  
-本文转载自[Jiarong Wei的博客](https://vcamx.me/2013/05/15/subroutines-functions-in-MIPS/),
-由其翻译自[Subroutines/Functions in MIPS](http://people.cs.pitt.edu/~xujie/cs447/Mips/sub.html)
-
-## 介绍
-
 在所有编程语言中，函数可能是最基础的单元。它给了我们最简单的程序抽象的形式。它提供了接口（如原型），并且允许我们在不知其实现方式的情况下使用函数。
 
 因此，汇编语言必须提供机制来实现函数就可以说得通了。为了区分编程语言和汇编语言中的函数，我把汇编语言中的函数称为子程序。在任何情况下，C 语言中的函数和汇编语言中的子程序都有着不同之处。如果我不小心将其称为函数，我实际上是指 MIPS 子程序。
@@ -205,12 +199,12 @@ MIPS 将 8 个寄存器 **$s0 - $s7** 设计为被保留的寄存器（saved reg
 为啥你需要在栈中保存返回值？让我们看看一个调用了两个辅助子程序的子程序的例子，BAR 和 CAT：
 
 	FOO:  ....
-    	  ....
-      	  jal BAR
-      	  move $t0, $v0   # Save return value to t0
-      	  ....
-      	  jal CAT
-      	  add $v0, $v0, $t0   # Uh oh! Error! $t0 may have changed!
+		  ....
+	  	  jal BAR
+	  	  move $t0, $v0   # Save return value to t0
+	  	  ....
+	  	  jal CAT
+	  	  add $v0, $v0, $t0   # Uh oh! Error! $t0 may have changed!
 
 假设你以一个程序员的身份阅读这段代码。在第一个注释中，**$v0** 是被保存的到一个临时寄存器。这个程序员知道 **jal CAT** 将覆盖 **$v0**。但是，其不会真正被保存。
 
@@ -223,13 +217,13 @@ MIPS 将 8 个寄存器 **$s0 - $s7** 设计为被保留的寄存器（saved reg
 所以，解决方法是：
 
 	FOO:  ....
-    	  ....
-    	  jal BAR
-    	  sw  $v0, 4($sp)     # Save return value to stack
-    	  ....
-    	  jal CAT
-    	  sw  $t0, 4($sp)     # Get old return value from stack
-    	  $v0, $v0, $t0   # Fixed problem!
+		  ....
+		  jal BAR
+		  sw  $v0, 4($sp)     # Save return value to stack
+		  ....
+		  jal CAT
+		  sw  $t0, 4($sp)     # Get old return value from stack
+		  $v0, $v0, $t0   # Fixed problem!
 
 我们将返回值保存在 **4($sp)** 中。想必，你会在栈中选一个好位置保存它。**4($sp)** 只是一个随意的选择。
 
@@ -270,3 +264,9 @@ MIPS 将 8 个寄存器 **$s0 - $s7** 设计为被保留的寄存器（saved reg
 - 被调用者通常在开头将其需要使用的寄存器保存到栈中。如果被调用者调用了辅助子程序，必须将 **$ra**入栈，同时也必须将临时寄存器或被保留的寄存器入栈。
 - 当子程序结束，返回值要保存在 **$v0 - $v1** 中。
 - 被调用者使用 **jr $ra** 返回到调用者那里。
+
+---
+
+**版权声明**  
+本文转载自[Jiarong Wei的博客](https://vcamx.me/2013/05/15/subroutines-functions-in-MIPS/),
+由其翻译自[Subroutines/Functions in MIPS](http://people.cs.pitt.edu/~xujie/cs447/Mips/sub.html)

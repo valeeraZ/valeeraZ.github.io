@@ -9,7 +9,9 @@ tags:
     - Java
 ---
 
-转载自[CompletionService和ExecutorCompletionService详解](https://www.jianshu.com/p/cfda708a3478)
+《Java并发编程实践》一书6.3.5节CompletionService：Executor和BlockingQueue，有这样一段话：
+
+ "如果向Executor提交了一组计算任务，并且希望在计算完成后获得结果，那么可以保留与每个任务关联的Future，然后反复使用get方法，同时将参数timeout指定为0，从而通过轮询来判断任务是否完成。这种方法虽然可行，但却有些繁琐。幸运的是，还有一种更好的方法：完成服务CompletionService。"
 
 # 接口
 
@@ -177,3 +179,6 @@ static void case3() throws InterruptedException, ExecutionException {
 }
 ```
 
+---
+
+转载自[CompletionService和ExecutorCompletionService详解](https://www.jianshu.com/p/cfda708a3478)

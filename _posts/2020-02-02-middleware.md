@@ -9,12 +9,7 @@ tags:
    - php
 ---
 
-**版权所有**
-
-转载自[Slim 4 PHP 框架零基础学习笔记－中间件](Slim 4 PHP 框架零基础学习笔记－中间件)，作者[如是博博](https://blog.csdn.net/weixin_42527192)
-
-# 中间件的作用
-在app程序 执行前 或 执行后 要运行的代码，用来操作 Request和Response对象。
+中间件的作用：在app程序 执行前 或 执行后 要运行的代码，用来操作 Request和Response对象。
 比如，在防止 跨站点请求伪造 时就需要在应用运行之前验证请求，这就需要用到中间件。
 
 # 中间件基本要求
@@ -207,6 +202,6 @@ $request = $request->withAttribute('foo', 'bar');
 $foo = $request->getAttribute('foo');
 ```
 
+---
 
-
-   
+转载自[Slim 4 PHP 框架零基础学习笔记－中间件](Slim 4 PHP 框架零基础学习笔记－中间件)，作者[如是博博](https://blog.csdn.net/weixin_42527192)

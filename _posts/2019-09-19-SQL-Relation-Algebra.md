@@ -8,10 +8,6 @@ header-img: "img/database.jpeg"
 tags: 
     - Data Base
 ---
-版权声明：本文为CSDN博主「QuinnNorris」的原创文章，遵循 [CC 4.0 BY-SA](http://creativecommons.org/licenses/by-sa/4.0/) 版权协议，转载请附上原文出处链接及本声明。
-
-原文链接：<https://blog.csdn.net/quinnnorris/article/details/70739094>
-
 关系代数是一种过程化查询语言。它包括一个运算的集合，这些运算以一个或两个关系为输入，产生一个新的关系作为结果。关系代数的基本运算有：
 
 名称|英文|符号
@@ -131,3 +127,8 @@ tags:
 [SQL与关系代数](https://rgb-24bit.github.io/blog/2019/sql-relational-algebra.html)
 
 [《数据库系统概念》:作者: （美）Abraham Silberschatz / （美）Henry F.Korth / （美）S.Sudarshan](https://book.douban.com/subject/10548379/)  
+
+版权声明：本文为CSDN博主「QuinnNorris」的原创文章，遵循 [CC 4.0 BY-SA](http://creativecommons.org/licenses/by-sa/4.0/) 版权协议，转载请附上原文出处链接及本声明。
+
+原文链接：<https://blog.csdn.net/quinnnorris/article/details/70739094>
+
