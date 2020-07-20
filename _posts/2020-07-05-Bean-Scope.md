@@ -648,7 +648,7 @@ public void test(){
 
 横线以上的10次循环，应该输出10个相同的bean；横线以下的，应该均不同，因为是10个不同的线程。
 
-```bean = Bean@12c8a2c0
+```
 bean = Bean@12c8a2c0
 bean = Bean@12c8a2c0
 bean = Bean@12c8a2c0

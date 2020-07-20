@@ -1,5 +1,5 @@
 ---
-title: Lazy-Bean lifecycle
+title: Spring-Bean's lifecycle
 layout: post
 subtitle: lazy-initialized, Depends-on, initialization and destruction 
 date:       2020-07-09
