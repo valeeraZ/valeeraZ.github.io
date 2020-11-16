@@ -33,30 +33,30 @@ tags:
 
 3. 编辑ssh配置文件：`sudo vi /etc/ssh/sshd_config` （不熟悉vim的用户可用`nano`打开）
 
-4. 1. 去掉`#PORT 22`前的#，也就是去掉这个注释符号
+   1. 去掉`#PORT 22`前的#，也就是去掉这个注释符号
    2. 编辑`PasswordAuthentication yes`，确保其没有被注释掉
    3. `PermitRootLogin yes`，允许root用户登录
 
-5. 重启ssh服务：`sudo service ssh restart`
+4. 重启ssh服务：`sudo service ssh restart`
 
-6. 获取自己的ip地址：`ifconfig`
+5. 获取自己的ip地址：`ifconfig`
 
    （图中红框处本机ip地址）如若忘记了wsl的用户名或密码，可使用`cat /etc/passwd`查看用户组和`passwd `来修改密码
 
    ![img](https://raw.githubusercontent.com/valeeraZ/-image-host/master/640.png)
 
-7. 从windows本机的终端，如Windows Powershell，尝试连接：`ssh <username>@<ipaddress>`
+6. 从windows本机的终端，如Windows Powershell，尝试连接：`ssh <username>@<ipaddress>`
 
-8. 成功后打开CLion，从左上角File找到**Settings / Preferences | Build, Execution, Deployment | ToolChains** ，右侧使用向上箭头将WSL调至最上方，修改右侧的参数：Credentials项点击右侧齿轮设置，添加配置并Test connection，应用。
+7. 成功后打开CLion，从左上角File找到**Settings / Preferences > Build, Execution, Deployment > ToolChains** ，右侧使用向上箭头将WSL调至最上方，修改右侧的参数：Credentials项点击右侧齿轮设置，添加配置并Test connection，应用。
 
    ![img](https://raw.githubusercontent.com/valeeraZ/-image-host/master/640-20201116073210224.png)
 
    ![img](https://raw.githubusercontent.com/valeeraZ/-image-host/master/640-20201116073219312.png)
 
-9. 从CLion左上角File找到**Settings / Preferences | Build, Execution, Deployment | Dynamic Analysis Tools | Valgrind**，设置Valgrind的安装地址。在wsl中使用`which valgrind`来获得安装地址
+8. 从CLion左上角File找到**Settings / Preferences > Build, Execution, Deployment > Dynamic Analysis Tools > Valgrind**，设置Valgrind的安装地址。在wsl中使用`which valgrind`来获得安装地址
 
    ![img](https://raw.githubusercontent.com/valeeraZ/-image-host/master/640-20201116073226080.png)
 
-10. 使用Valgrind来运行项目（图中红框），在下方Run中，查看Valgrind的报错信息，若无错误则显示空白。
+9. 使用Valgrind来运行项目（图中红框），在下方Run中，查看Valgrind的报错信息，若无错误则显示空白。
 
     ![img](https://raw.githubusercontent.com/valeeraZ/-image-host/master/640-20201116073235310.png)
