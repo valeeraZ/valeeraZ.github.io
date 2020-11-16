@@ -24,7 +24,7 @@ macOS或Linux发行版或WSL以及Visual Studio Code代码编辑软件。
 5. `eval $(opam env)`升级现有shell环境。
 6. 使用`mkdir` 和`cd` 创建并进入你的OCaml项目
 
- # 安装依赖
+# 安装依赖
 
 我们将安装OCaml包下的两个依赖用来支持VS Code的运行
 
